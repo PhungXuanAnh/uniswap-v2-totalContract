@@ -11,12 +11,12 @@ uniswap-v2 tutorial
   - [3.5. Bước 5. Tạo pool DAI - ETH (tạo pair DAI - ETH)](#35-bước-5-tạo-pool-dai---eth-tạo-pair-dai---eth)
   - [3.6. Bước 4. addLiquidityETH](#36-bước-4-addliquidityeth)
   - [3.7. Bước 6. Swap ETH lấy DAI](#37-bước-6-swap-eth-lấy-dai)
-- [Sử dụng Uniswap như một Oracle giá token. Say Bye Chainlink!](#sử-dụng-uniswap-như-một-oracle-giá-token-say-bye-chainlink)
-  - [Bước 1. Lấy địa chỉ của Pair](#bước-1-lấy-địa-chỉ-của-pair)
-  - [Bước 2. Lấy Reserves của Pair sau đó tính toán](#bước-2-lấy-reserves-của-pair-sau-đó-tính-toán)
-  - [Thực hành](#thực-hành)
-- [Kết luận](#kết-luận)
-- [4. reference](#4-reference)
+- [4. Sử dụng Uniswap như một Oracle giá token. Say Bye Chainlink!](#4-sử-dụng-uniswap-như-một-oracle-giá-token-say-bye-chainlink)
+  - [4.1. Bước 1. Lấy địa chỉ của Pair](#41-bước-1-lấy-địa-chỉ-của-pair)
+  - [4.2. Bước 2. Lấy Reserves của Pair sau đó tính toán](#42-bước-2-lấy-reserves-của-pair-sau-đó-tính-toán)
+  - [4.3. Thực hành](#43-thực-hành)
+- [5. Kết luận](#5-kết-luận)
+- [6. reference](#6-reference)
 
 Làm thế nào để deploy smart contract của Uniswap!
 
@@ -384,13 +384,13 @@ khoảng 199 DAI = 154 DAI + 45 DAI
 Như vậy DAI đã tăng lên một lượng bằng với kết quả mà ta chạy `yarn getAmountOunt --network ropsten dai` ở trên.
 
 
-# Sử dụng Uniswap như một Oracle giá token. Say Bye Chainlink!
+# 4. Sử dụng Uniswap như một Oracle giá token. Say Bye Chainlink!
 
 Với cộng đồng sử dụng đông đảo, lượng thanh khoản trong các Pool cực kỳ lớn nên từ lâu tỉ giá giữa các token trong Uni gần như bám rất sát với giá token trên các sàn tập trung như Binance, Bitmax,... và khó có thể bị thao túng bởi một ai
 
 Trước đây ta hay dùng Chainlink Oracle mỗi khi muốn lấy giá token, việc này tốn một lượng LINK token. Nhưng giờ ta có thể lợi dụng thanh khoản trong các Pool của Uni để lấy tỷ giá giữa các token. Việc này được triển khai như trong smart contract [GetTokenPrice.sol](useOracle/contracts/GetTokenPrice.sol)
 
-## Bước 1. Lấy địa chỉ của Pair
+## 4.1. Bước 1. Lấy địa chỉ của Pair
 
 Trước tiên ta phải lấy được địa chỉ của Pair thông qua Factory, nếu địa chỉ trả về là `address(0)` nghĩa là Pair (Pool) đó chưa tồn tại.
 
@@ -402,7 +402,7 @@ address pairAddress = IUniswapFactory(uniswapV2FactoryAddress).getPair(_token, W
 
 chính là lấy địa chỉ thực sự của Pair
 
-## Bước 2. Lấy Reserves của Pair sau đó tính toán
+## 4.2. Bước 2. Lấy Reserves của Pair sau đó tính toán
 
 Sau khi có được địa chỉ của Pair, chúng ta sẽ gọi đến hàm `getReserves()` của **Pair**, hàm này trả về lượng token đang có trong Pool, tý giá giữa chúng có thể nói là gần như bằng với các sàn tập trung như Binance, Bitmax,...
 
@@ -422,7 +422,7 @@ Sau đó là chúng ta tính toán dụa trên các reserves để có được 
         }
 ```
 
-## Thực hành
+## 4.3. Thực hành
 
 ```shell
 cd cd useOracle
@@ -474,13 +474,13 @@ Done in 20.31s.
 
 như vậy 1DAI mua được khoảng 0,0024 ETH
 
-# Kết luận
+# 5. Kết luận
 
 Nếu bạn clone repo của mình về và phân tích và chạy thành công các bước ở trên thì có nghĩa là bạn hoàn toàn có thể tự deploy một Uniswap cho mình.
 
 Tiếp theo bạn clone tiếp giao diện của Uniswap [tại đây](https://github.com/Uniswap/uniswap-interface) cho nó trỏ vào contract Router mà bạn đã deploy là có thể chạy lên một project Uniswap hoàn chỉnh !!!
 
-# 4. reference
+# 6. reference
 
 https://viblo.asia/p/lam-the-nao-de-deploy-smart-contract-cua-uniswap-aWj53WMQ56m#_buoc-1-deploy-factory-3
 
