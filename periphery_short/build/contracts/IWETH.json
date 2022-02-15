@@ -46,16 +46,16 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/trinh.van.tan/uniswap/uniswap-v2-totalContract/periphery_short/contracts/interfaces/IWETH.sol\":\"IWETH\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/trinh.van.tan/uniswap/uniswap-v2-totalContract/periphery_short/contracts/interfaces/IWETH.sol\":{\"keccak256\":\"0xfc10758fd8dba790c39468dccd358cb7cef06ae7c4781832cc7aa76f91f167e6\",\"urls\":[\"bzz-raw://dc22493dea6c60d47835eeba53726f8a6f76f4fcd798d40e54608a1380515d49\",\"dweb:/ipfs/QmS1QVcBRH4TELYNE7XCfjSVQEWFupyaNLKmMkKH7iPjrm\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/xuananh/repo/uniswap-v2-tutorial/periphery_short/contracts/interfaces/IWETH.sol\":\"IWETH\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/xuananh/repo/uniswap-v2-tutorial/periphery_short/contracts/interfaces/IWETH.sol\":{\"keccak256\":\"0xfc10758fd8dba790c39468dccd358cb7cef06ae7c4781832cc7aa76f91f167e6\",\"urls\":[\"bzz-raw://dc22493dea6c60d47835eeba53726f8a6f76f4fcd798d40e54608a1380515d49\",\"dweb:/ipfs/QmS1QVcBRH4TELYNE7XCfjSVQEWFupyaNLKmMkKH7iPjrm\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity >=0.5.0;\n\ninterface IWETH {\n    function deposit() external payable;\n    function transfer(address to, uint value) external returns (bool);\n    function withdraw(uint) external;\n}\n",
-  "sourcePath": "/home/trinh.van.tan/uniswap/uniswap-v2-totalContract/periphery_short/contracts/interfaces/IWETH.sol",
+  "sourcePath": "/home/xuananh/repo/uniswap-v2-tutorial/periphery_short/contracts/interfaces/IWETH.sol",
   "ast": {
-    "absolutePath": "/home/trinh.van.tan/uniswap/uniswap-v2-totalContract/periphery_short/contracts/interfaces/IWETH.sol",
+    "absolutePath": "/home/xuananh/repo/uniswap-v2-tutorial/periphery_short/contracts/interfaces/IWETH.sol",
     "exportedSymbols": {
       "IWETH": [
         4780
@@ -300,7 +300,7 @@
     "src": "0:196:12"
   },
   "legacyAST": {
-    "absolutePath": "/home/trinh.van.tan/uniswap/uniswap-v2-totalContract/periphery_short/contracts/interfaces/IWETH.sol",
+    "absolutePath": "/home/xuananh/repo/uniswap-v2-tutorial/periphery_short/contracts/interfaces/IWETH.sol",
     "exportedSymbols": {
       "IWETH": [
         4780
@@ -550,7 +550,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.1",
-  "updatedAt": "2020-11-16T06:03:25.967Z",
+  "updatedAt": "2022-02-15T04:37:48.499Z",
   "devdoc": {
     "methods": {}
   },

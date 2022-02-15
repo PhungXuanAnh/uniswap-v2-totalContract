@@ -38,7 +38,7 @@
   },
   "scripts": {
     "migrate": "npx truffle migrate",
-    "getETHAmount": "npx truffle exec scripts/getAmountETH.js"
+    "getAmountETH": "npx truffle exec scripts/getAmountETH.js"
   },
   "license": "GPL-3.0-or-later"
 }
