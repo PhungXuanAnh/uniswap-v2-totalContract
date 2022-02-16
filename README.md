@@ -478,7 +478,7 @@ như vậy 1DAI mua được khoảng 0,0024 ETH
 
 Nếu bạn clone repo của mình về và phân tích và chạy thành công các bước ở trên thì có nghĩa là bạn hoàn toàn có thể tự deploy một Uniswap cho mình.
 
-Tiếp theo bạn clone tiếp giao diện của Uniswap [tại đây](https://github.com/Uniswap/uniswap-interface) cho nó trỏ vào contract Router mà bạn đã deploy là có thể chạy lên một project Uniswap hoàn chỉnh !!!
+Tiếp theo bạn clone tiếp giao diện của Uniswap [tại đây](https://github.com/Uniswap/interface) cho nó trỏ vào contract Router mà bạn đã deploy là có thể chạy lên một project Uniswap hoàn chỉnh !!!
 
 # 6. reference
 
