@@ -11,6 +11,7 @@ uniswap-v2 tutorial
   - [3.5. Bước 5. Tạo pool DAI - ETH (tạo pair DAI - ETH)](#35-bước-5-tạo-pool-dai---eth-tạo-pair-dai---eth)
   - [3.6. Bước 4. addLiquidityETH](#36-bước-4-addliquidityeth)
   - [3.7. Bước 6. Swap ETH lấy DAI](#37-bước-6-swap-eth-lấy-dai)
+  - [Tổng hợp các bước](#tổng-hợp-các-bước)
 - [4. Sử dụng Uniswap như một Oracle giá token. Say Bye Chainlink!](#4-sử-dụng-uniswap-như-một-oracle-giá-token-say-bye-chainlink)
   - [4.1. Bước 1. Lấy địa chỉ của Pair](#41-bước-1-lấy-địa-chỉ-của-pair)
   - [4.2. Bước 2. Lấy Reserves của Pair sau đó tính toán](#42-bước-2-lấy-reserves-của-pair-sau-đó-tính-toán)
@@ -383,6 +384,46 @@ khoảng 199 DAI = 154 DAI + 45 DAI
 
 Như vậy DAI đã tăng lên một lượng bằng với kết quả mà ta chạy `yarn getAmountOunt --network ropsten dai` ở trên.
 
+## Tổng hợp các bước
+
+các bước deploy
+
+```shell
+# Deploy Factory
+cd factory
+yarn install
+yarn migrate --network ropsten
+# thay address của Factory vừa được deploy vào file periphery_short/migrations/1_deploy.js
+#  lấy BytecodeHash của UniswapV2Pair
+➜  factory git:(master) ✗ yarn getBytecodeHash
+# copy giá trị bytecode thay vào dòng thứ 37 của file periphery_short/contracts/libraries/UniswapV2Library.sol
+# deploy Router
+cd periphery_short
+yarn install
+yarn migrate --network ropsten
+```
+
+các bước để thực hiện swap
+
+```shell
+# ----- có thể bỏ qua bước này, sang bước add liquidity luôn vì khi add liquidity mà chưa có pair thì nó cũng tạo luôn
+#  Tạo pool DAI - ETH (tạo pair DAI - ETH)
+cd factory
+yarn createPair --network ropsten dai eth
+#  xem địa chỉ của Pair qua Factory
+➜  factory git:(master) ✗ yarn getPair --network ropsten dai eth
+#  xem địa chỉ của Pair qua Router
+➜  periphery_short git:(master) ✗ yarn getPairFor --network ropsten dai eth
+# -----------------------------------------------------
+# addLiquidityETH
+➜  periphery_short git:(master) ✗ yarn addLiquidityETH --network ropsten dai
+# chạy lệnh sau để xem nếu mình swap 0.1 ETH thì sẽ nhận được bao nhiêu DAI:
+➜  periphery_short git:(master) ✗ yarn getAmountOut --network ropsten dai
+# xem số dư DAI hiện tại:
+➜  periphery_short git:(master) ✗ yarn getBalance --network ropsten dai
+# swap 0.1 ETH để lấy DAI:
+➜  periphery_short git:(master) ✗ yarn swapExactETHForTokens --network ropsten dai
+```
 
 # 4. Sử dụng Uniswap như một Oracle giá token. Say Bye Chainlink!
 
