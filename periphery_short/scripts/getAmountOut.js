@@ -18,10 +18,13 @@ module.exports = async () => {
     const uniswapV2Router02Instance = await UniswapV2Router02.deployed();
     let pairAddress = await uniswapV2Router02Instance.getPairFor(tokenAddress, WETH);
     let pairInstance = await UniswapV2Pair.at(pairAddress);
-
+    // console.log(pairAddress);
+    
     let reserves = await pairInstance.getReserves();
     let reserveETH;
     let reserveDAI;
+
+    // console.log(reserves);
 
     if (WETH < SWAP_EXACT_ETH_FOR_TOKENS[process.argv[6]].address) {
       reserveETH = reserves[0];
@@ -31,11 +34,15 @@ module.exports = async () => {
       reserveDAI = reserves[0];
     }
 
-    let result = parseInt(
-      await uniswapV2Router02Instance.getAmountOut(amountETH, reserveETH, reserveDAI)
-    );
-
-    console.log(result);
+    // let result = parseInt(
+    //   await uniswapV2Router02Instance.getAmountOut(amountETH, reserveETH, reserveDAI)
+    // );
+    let result = await uniswapV2Router02Instance.getAmountOut(amountETH, reserveETH, reserveDAI);
+    
+    // console.log(reserveETH.toString());
+    // console.log(reserveDAI.toString());
+    // console.log(amountETH);
+    console.log(result.toString());
 
     process.exit(0);
   } catch (err) {
