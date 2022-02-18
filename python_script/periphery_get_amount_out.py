@@ -1,5 +1,5 @@
 import json
-from common import w3, DAI_ADDRESS, WETH, AMOUNT_DAI_FOR_SWAP_EXACT_ETH
+from common import w3, DAI_ADDRESS, WETH, amount_ETH_for_swap_exact_DAI
 
 # get router
 router_built_file = open('../periphery_short/build/contracts/UniswapV2Router02.json', "r")
@@ -30,9 +30,9 @@ else:
     reverse_ETH = reverses[1]
     reverse_DAI = reverses[0]
     
-result = router_contract.functions.getAmountOut(AMOUNT_DAI_FOR_SWAP_EXACT_ETH, reverse_ETH, reverse_DAI).call()
+result = router_contract.functions.getAmountOut(amount_ETH_for_swap_exact_DAI, reverse_ETH, reverse_DAI).call()
 # print(reverse_ETH)
 # print(reverse_DAI)
-# print(AMOUNT_DAI_FOR_SWAP_EXACT_ETH)
+# print(amount_ETH_for_swap_exact_DAI)
 print(result)
     

@@ -12,7 +12,7 @@ INFURA_URL = 'https://ropsten.infura.io/v3/' + INFURA_PROJECT_ID
 WETH = '0xc778417E063141139Fce010982780140Aa0cD5Ab'
 
 DAI_ADDRESS = '0x3ac1c6ff50007ee705f36e40F7Dc6f393b1bc5e7'
-AMOUNT_DAI_FOR_SWAP_EXACT_ETH = int(0.1 * 10 ** 18)
+amount_ETH_for_swap_exact_DAI = int(0.1 * 10 ** 18)
 
 # these constances are parameter in method add liquidity DAI-ETH
 amount_DAI_desired = 500 * 10 ** 18
