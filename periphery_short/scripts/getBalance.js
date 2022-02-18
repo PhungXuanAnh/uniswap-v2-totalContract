@@ -14,9 +14,11 @@ module.exports = async () => {
     let tokenAddress = TOKENS[process.argv[6]].address;
     let daiInstance = await ERC20.at(tokenAddress);
 
-    let result = parseInt(await daiInstance.balanceOf(process.env.OPERATOR_ADDRESS));
+    // let result = parseInt(await daiInstance.balanceOf(process.env.OPERATOR_ADDRESS));
 
-    console.log(result);
+    let result = await daiInstance.balanceOf(process.env.OPERATOR_ADDRESS);
+
+    console.log(result.toString());
 
     process.exit(0);
   } catch (err) {
